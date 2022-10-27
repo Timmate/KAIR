@@ -628,7 +628,7 @@ def calculate_psnr(img1, img2, border=0):
     #img1 = img1.squeeze()
     #img2 = img2.squeeze()
     if not img1.shape == img2.shape:
-        raise ValueError('Input images must have the same dimensions.')
+        raise ValueError(f'Input images must have the same dimensions. ({img1.shape} != {img2.shape})')
     h, w = img1.shape[:2]
     img1 = img1[border:h-border, border:w-border]
     img2 = img2[border:h-border, border:w-border]
