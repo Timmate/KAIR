@@ -39,6 +39,9 @@ class DatasetSR(data.Dataset):
         # get H image
         # ------------------------------------
         H_path = self.paths_H[index]
+        
+        print('\nH_path: ' + H_path + '\n')
+                
         img_H = util.imread_uint(H_path, self.n_channels)
         img_H = util.uint2single(img_H)
 
@@ -55,6 +58,9 @@ class DatasetSR(data.Dataset):
             # directly load L image
             # --------------------------------
             L_path = self.paths_L[index]
+            
+            print('\nL_path: ' + L_path + '\n')
+            
             img_L = util.imread_uint(L_path, self.n_channels)
             img_L = util.uint2single(img_L)
 
@@ -62,6 +68,9 @@ class DatasetSR(data.Dataset):
             # --------------------------------
             # sythesize L image via matlab's bicubic
             # --------------------------------
+            
+            print('\nWill synthesize L image.\n')
+            
             H, W = img_H.shape[:2]
             img_L = util.imresize_np(img_H, 1 / self.sf, True)
 
