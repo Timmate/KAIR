@@ -72,6 +72,8 @@ def get_image_paths(dataroot):
         paths = []
         for i in dataroot:
             paths += sorted(_get_paths_from_images(i))
+    from PIL import Image
+    paths = [p for p in paths if Image.open(p).size[0] >= 256]
     return paths
 
 
